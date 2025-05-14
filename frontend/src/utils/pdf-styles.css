@@ -1,0 +1,53 @@
+/* PDF.js text layer styles */
+
+/* Base text layer styles */
+.react-pdf__Page__textContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0.25;
+    pointer-events: none;
+    user-select: text;
+}
+
+/* Make text selectable but don't interfere with document interactions */
+.react-pdf__Page__textContent span {
+    color: transparent;
+    cursor: text !important;
+    pointer-events: auto;
+    position: absolute;
+    transform-origin: 0% 0%;
+    user-select: text;
+}
+
+/* Highlight styles for search matches */
+.react-pdf__Page__textContent span.search-highlight {
+    background-color: rgba(255, 255, 0, 0.6) !important;
+    border-radius: 2px;
+    padding: 0;
+    box-shadow: 0 0 0 1px rgba(255, 200, 0, 0.5);
+    color: transparent;
+}
+
+/* Styling for highlighted search results in the search panel */
+.text-highlight {
+    background-color: rgba(255, 255, 0, 0.5);
+    border-radius: 2px;
+    padding: 2px 0;
+    box-shadow: 0 0 0 1px rgba(255, 200, 0, 0.5);
+}
+
+/* Selected text styling */
+.react-pdf__Page__textContent ::selection {
+    background: rgba(100, 100, 255, 0.4);
+    color: transparent;
+}
+
+/* Make sure the text layer doesn't interfere with annotations */
+.react-pdf__Page__annotations {
+    pointer-events: auto;
+    z-index: 3;
+}
